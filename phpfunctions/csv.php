@@ -7,14 +7,19 @@ class className extends JobRouter\Engine\Runtime\PhpFunction\RuleExecutionFuncti
         $dwdocid = $this->getTableValue('import_dwdocid');
         
         $externalDB = $this->getDBConnection('Docuware_Verbindung');
+        
         $sql = 'SELECT MANDANT, JAHR, KATEGORIE_1, KATEGORIE_2, KATEGORIE_3, KATEGORIE_4, BETREFF
                 FROM Jahresabschluss
                 WHERE DWDOCID = :dwdocid ';
+        
         $parameters = [
             'dwdocid' => $dwdocid
         ];
+        
         $types = [];
+        
         $result = $externalDB->preparedSelect($sql, $parameters, $types);
+        
         while ($row = $externalDB->fetchRow($result)) {
             $this->setTableValue('mandant', $row['MANDANT']);
             $this->setTableValue('financialYear', $row['JAHR']);
