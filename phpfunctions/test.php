@@ -17,7 +17,6 @@ class className extends JobRouter\Engine\Runtime\PhpFunction\RuleExecutionFuncti
         ];
         
         $types = [];
-        
         $result = $externalDB->preparedSelect($sql, $parameters, $types);
         
         while ($row = $externalDB->fetchRow($result)) {
