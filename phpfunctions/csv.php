@@ -13,10 +13,8 @@ class className extends JobRouter\Engine\Runtime\PhpFunction\RuleExecutionFuncti
         $parameters = [
             'dwdocid' => $dwdocid
         ];
-    
         $types = [];
         $result = $externalDB->preparedSelect($sql, $parameters, $types);
-
         while ($row = $externalDB->fetchRow($result)) {
             $this->setTableValue('mandant', $row['MANDANT']);
             $this->setTableValue('financialYear', $row['JAHR']);
