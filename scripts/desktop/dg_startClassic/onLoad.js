@@ -1,3 +1,3 @@
 function onLoad() {
-    jr_notify_warn('Hello JobRouter');
+    jr_notify_warn('Hello JobRouter - Rezertifizierung');
 }
